@@ -18,17 +18,17 @@
               }, speed);
         }
 
-      printLetterByLetter(
-        "message",
-      "Deze computer is vaak gebruikt door kinderen die valse aangifte doen tegen toeristen.\  Zorg dat je hier weg komt.\  Gebruik rare ontsnaproutes, zelfs als het koud is!\  Zet de temperatuur op -3,74 graden!",
-      50);
+
 
       function alertMessage() {
         document.getElementById('form').style.opacity = "0";
         document.getElementById('headerImage').style.opacity = "0";
         document.getElementById('cmd').style.opacity = "1";
         document.body.style.background = "black";
-        printLetterByLetter();
+        printLetterByLetter(
+          "message",
+        "Deze computer is vaak gebruikt door kinderen die valse aangifte doen tegen toeristen.\  Zorg dat je hier weg komt.\  Gebruik rare ontsnaproutes, zelfs als het koud is!\  Zet de temperatuur op -3,74 graden!",
+        50);
       };
   </script>
   <style media="screen">
