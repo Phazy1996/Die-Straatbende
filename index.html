@@ -7,40 +7,88 @@
   <title>index.html</title>
   <script>
 
+        function printLetterByLetter(destination, message, speed){
+              var i = 0;
+              var interval = setInterval(function(){
+                  document.getElementById(destination).innerHTML += message.charAt(i);
+                  i++;
+                  if (i > message.length){
+                  clearInterval(interval);
+                  }
+              }, speed);
+        }
+
+      printLetterByLetter(
+        "message",
+      "Deze computer is vaak gebruikt door kinderen die valse aangifte doen tegen toeristen.\  Zorg dat je hier weg komt.\  Gebruik rare ontsnaproutes, zelfs als het koud is!\  Zet de temperatuur op -3,74 graden!",
+      50);
+
+      function alertMessage() {
+        document.getElementById('form').style.opacity = "0";
+        document.getElementById('headerImage').style.opacity = "0";
+        document.getElementById('cmd').style.opacity = "1";
+        document.body.style.background = "black";
+        printLetterByLetter();
+      };
   </script>
   <style media="screen">
-    html{
-        margin: 0px;
-        width: 100%;
-        height: 100%;
-    }
+  html{
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+  }
 
-    header{
-      width: inherit;
-    }
+  header{
+    width: inherit;
+  }
 
-    #headerImage{
-      margin-left: auto;
-      width: 100%;
-    }
+  #headerImage{
+    margin-left: auto;
+    width: 100%;
+  }
 
-    body{
-      width: 100%;
-      margin: inherit;
-      background-color: #F7F9FE;
-    }
+  body{
+    width: 100%;
+    margin: inherit;
+    background-color: #F7F9FE;
+  }
 
-    .form {
-      height: auto;
-      width: 50%;
-      margin-left: 25%;
+  #cmd{
+    height: 350px;
+    width: 450px;
+    background-color: black;
+    color: green;
+    padding: 5px;
+    z-index: 500;
+    position: absolute;
+    top: calc(50% - 175px);
+    left: calc(50% - 225px);
+    font-family: monospace;
+    font-size: 20px;
+    opacity: 0;
+  }
 
-    }
+  #form {
+    height: auto;
+    width: 50%;
+    margin-left: 25%;
+
+  }
   </style>
 </head>
 <body>
   <img id="headerImage" src="img/header.png" alt="">
-  <div class="form">
+
+
+      <div id="cmd">
+        <p id="message">
+
+        </p>
+      </div>
+
+
+
+  <div id="form">
     <form>
       <fieldset>
         <legend>Persoonlijke Informatie</legend>
@@ -65,8 +113,8 @@
         <legend>Reden voor Aangifte</legend>
         <textarea rows="15" cols="95" name="aangifte" form="usrform"></textarea>
         <br>
-      <input type="submit" value="Verstuur">
-    </form>
-  </div>
-</body>
-</html>
+        <input type="button" value="Verstuur" onclick="alertMessage()">
+      </form>
+    </div>
+  </body>
+  </html>
